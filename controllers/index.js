@@ -4,7 +4,7 @@ const router = express.Router()
 
 //Create requests GET / POST
 router.get('/', (req, res) => {
-    res.send('index')
+    res.redirect('/storms')
 })
 
 module.exports = router

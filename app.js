@@ -45,6 +45,7 @@ require('./express-sessions')(app)
 
 // Routes
 app.use('/', require('./controllers/index'))
+app.use('/storms', require('./controllers/storms'))
 
 // ::::
 // Create your routes here
