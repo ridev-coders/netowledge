@@ -24,6 +24,24 @@ router.get('/:username', async(req, res, next) => {
     } catch (err) { next(err) }
 })
 
+
+router.post('/create', async(req, res, next) => {
+    try {
+        if (!req.isAuthenticated()) {
+            res.redirect('auth/login')
+        } else {
+            console.log('post request: create storm')
+            let request_from_user_page = true
+            if (request_from_user_page) {
+                res.redirect('storms/list')
+            } else {
+                res.redirect('storms/:username')
+            }
+        }
+    } catch (err) { next(err) }
+})
+
+
 router.delete('/:id', async(req, res, next) => {
     try {
         console.log('delete request: delete storm')
