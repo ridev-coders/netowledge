@@ -2,7 +2,7 @@
 const { query } = require('express');
 const express = require('express')
 const router = express.Router()
-    // const Houses = require('../models/storms')
+    // const Storms = require('../models/storms')
 
 
 
@@ -10,7 +10,7 @@ const router = express.Router()
 //Create requests GET / POST
 router.get('/', async(req, res, next) => {
     try {
-        console.log('request: storms')
+        console.log('get request: storms')
         res.render('storms/list')
     } catch (err) {
         next(err)
@@ -19,7 +19,21 @@ router.get('/', async(req, res, next) => {
 
 router.get('/:username', async(req, res, next) => {
     try {
-        console.log('request: username storms')
+        console.log('get request: username storms')
+        res.render('storms/user')
+    } catch (err) { next(err) }
+})
+
+router.delete('/:id', async(req, res, next) => {
+    try {
+        console.log('delete request: delete storm')
+        res.render('storms/user')
+    } catch (err) { next(err) }
+})
+
+router.patch('/:id', async(req, res, next) => {
+    try {
+        console.log('patch request: patch storm')
         res.render('storms/user')
     } catch (err) { next(err) }
 })
