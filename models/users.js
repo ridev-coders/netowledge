@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
+const ObjectId = mongoose.Schema.Types.ObjectId
 
-// Create the results moodel
+// Create the users moodel
 module.exports = mongoose.model('users', {
     avatar: String,
     email: {
@@ -22,5 +23,16 @@ module.exports = mongoose.model('users', {
     country: {
         type: String,
         required: true
-    }
+    },
+    skills: [{
+        topic: {
+            type: ObjectId,
+            required: true,
+            ref: 'topics'
+        },
+        score: {
+            type: Number,
+            required: true
+        }
+    }]
 })
