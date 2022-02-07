@@ -12,8 +12,18 @@ module.exports = mongoose.model('storms', {
         ref: 'users',
         required: true
     },
-    topics: {
-        type: ObjectId,
-        ref: 'topics'
-    }
+    topics: [{
+        title: {
+            type: String,
+            required: true
+        },
+        pertinence: {
+            type: Number,
+            required: true
+        },
+        credibility: {
+            type: Number,
+            required: true
+        }
+    }]
 })
