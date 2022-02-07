@@ -16,13 +16,20 @@ module.exports = mongoose.model('thunders', {
         type: Number,
         required: true
     },
-    freezed_skills: {
-
-    },
+    freezed_skills: [{
+        topic: {
+            type: ObjectId,
+            required: true,
+            ref: 'topics'
+        },
+        score: {
+            type: Number,
+            required: true
+        }
+    }],
     storm: {
         type: ObjectId,
         ref: 'storms',
         required: true
     }
-
 })
