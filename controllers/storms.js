@@ -17,4 +17,11 @@ router.get('/', async(req, res, next) => {
     }
 })
 
+router.get('/:username', async(req, res, next) => {
+    try {
+        console.log('request: username storms')
+        res.render('storms/user')
+    } catch (err) { next(err) }
+})
+
 module.exports = router
