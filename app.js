@@ -45,6 +45,7 @@ require('./express-sessions')(app)
 
 // Routes
 app.use('/', require('./controllers/index'))
+app.use('/auth', require('./controllers/auth'))
 app.use('/storms', require('./controllers/storms'))
 app.use('/thunders', require('./controllers/thunders'))
 
