@@ -26,3 +26,30 @@
     display: block;
     margin: auto;
 }
+
+
+/* navbar */
+
+.launchStorm {
+    color: #460f8c;
+    border-color: #460f8c;
+}
+
+.header {
+    background-color: #460f8c;
+}
+
+.searchBar {
+    border-radius: 20px;
+    width: 50vh;
+}
+
+.headerButton {
+    color: #ffffff;
+    border-color: #ffffff;
+    border-radius: 10px;
+}
+
+.userHeader {
+    color: #ffffff;
+}
