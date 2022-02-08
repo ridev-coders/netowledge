@@ -44,73 +44,124 @@
         </form>
       </div>
     </nav>
-    <!-- Button trigger modal -->
-    <button
-      type="button"
-      class="btn btn-primary"
-      data-bs-toggle="modal"
-      data-bs-target="#exampleModal"
-    >
-      Launch a Storm
-    </button>
-
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Generate a Storm</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <!-- contenuto modale -->
-          <div class="modal-body">
-            <div class="form-floating">
-              <textarea
-                class="form-control mb-3"
-                placeholder="Leave a title here"
-                id="floatingTextarea"
-              ></textarea>
-              <label for="floatingTextarea">Storm Title</label>
-            </div>
-            <form class="" action="index.html" method="post">
-              <div class="form-floating">
-                <textarea
-                  class="form-control"
-                  placeholder="Write the storm here"
-                  id="floatingTextarea2"
-                  style="height: 100px"
-                ></textarea>
-                <label for="floatingTextarea2">Write a storm...</label>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-2">colonna filtri?</div>
+        <div class="col-8">
+          <!-- inserire qui card con inserimento nuova STORM -->
+          <div class="card mb-3 stormCard" style="max-width: 540px;">
+            <div class="row g-0 ">
+              <div class="col-md-4">
+                <img
+                  src="https://randomuser.me/api/portraits/men/30.jpg"
+                  class="img-fluid avatar avatar-sm mt-3 ms-4"
+                  alt="..."
+                />
               </div>
-            </form>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Open a storm</h5>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                  >
+                    Launch a Storm
+                  </button>
+
+                  <!-- Modal -->
+                  <div
+                    class="modal fade"
+                    id="exampleModal"
+                    tabindex="-1"
+                    aria-labelledby="exampleModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">
+                            Generate a Storm
+                          </h5>
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                          ></button>
+                        </div>
+                        <!-- contenuto modale -->
+                        <div class="modal-body">
+                          <div class="form-floating">
+                            <textarea
+                              class="form-control mb-3"
+                              placeholder="Leave a title here"
+                              id="floatingTextarea"
+                            ></textarea>
+                            <label for="floatingTextarea">Storm Title</label>
+                          </div>
+                          <form class="" action="index.html" method="post">
+                            <div class="form-floating">
+                              <textarea
+                                class="form-control"
+                                placeholder="Write the storm here"
+                                id="floatingTextarea2"
+                                style="height: 100px"
+                              ></textarea>
+                              <label for="floatingTextarea2"
+                                >Write a storm...</label
+                              >
+                            </div>
+                          </form>
+                        </div>
+                        <div
+                          class="modal-footer d-grid gap-2 d-md-flex justify-content-md-end"
+                        >
+                          <button
+                            type="button"
+                            class="btn btn-outline-secondary"
+                            data-bs-dismiss="modal"
+                          >
+                            Delete
+                          </button>
+                          <button
+                            type="button"
+                            class="btn btn-outline-primary launchStorm"
+                          >
+                            Launch the Storm
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div
-            class="modal-footer d-grid gap-2 d-md-flex justify-content-md-end"
-          >
-            <button
-              type="button"
-              class="btn btn-outline-secondary"
-              data-bs-dismiss="modal"
-            >
-              Delete
-            </button>
-            <button type="button" class="btn btn-outline-primary launchStorm">
-              Launch the Storm
-            </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-2">colonna filtri?</div>
+        <div class="col-10">
+          <div class="card w-75 ">
+            <div class="card-body">
+              <h5 class="card-title">Marco Ferrera</h5>
+              <p class="card-text">
+                “Federica Brignone si prende l’argento nel gigante alle
+                Olimpiadi di Pechino, è la quarta medaglia in quest’edizione dei
+                Giochi per l’Italia. E ha un valore altissimo perché Fede
+                migliora il terzo posto di quattro anni fa a Pyeongchang,
+                infilare due podi olimpici di fila è un’impresa che riesce a
+                pochi. Una magia sulla neve artificiale di Yanqing, che va ben
+                oltre le più ottimistiche previsioni.”
+              </p>
+              <a href="#" class="btn btn-primary">Button</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <!-- Button trigger modal -->
   </body>
 </html>
