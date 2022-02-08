@@ -18,21 +18,21 @@ module.exports = mongoose.model('users', {
     },
     born: {
         type: Date,
-        required: true
+        // required: true
     },
     country: {
         type: String,
-        required: true
+        // required: true
     },
     skills: [{
         topic: {
             type: ObjectId,
-            required: true,
+            // required: true,
             ref: 'topics'
         },
         score: {
             type: Number,
-            required: true
+            // required: true
         }
     }]
 })
