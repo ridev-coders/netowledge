@@ -27,7 +27,8 @@ const getTopics = (text, n_topics = 1, n_terms = 5) => {
 router.get('/', async(req, res, next) => {
     try {
         console.log('get request: storms')
-        res.render('storms/list')
+        console.log('logged user is: ', req.user)
+        res.render('storms/list', { user: req.user })
     } catch (err) {
         next(err)
     }

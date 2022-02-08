@@ -5,12 +5,15 @@
         </a>
         <form class="d-flex gap-2">
             <input class="form-control me-5 searchBar" type="search" style="width: 200 px" placeholder="Search a Storm or a topic" aria-label="Search" />
-            <button type="button" class="btn btn-outline-secondary headerButton">
-        Marco
-        </button>
-            <button type="button" class="btn btn-outline-secondary headerButton">
-        Logout
-        </button>
+            <button type="button" class="btn btn-outline-secondary headerButton me-2">
+                <img src="{{user.avatar}}" class="rounded-circle" style="height: 20px;">
+                    {{user.name}}
+            </button>
+            <a href="/auth/login">
+                <button type="button" class="btn btn-outline-secondary headerButton">
+                    Logout
+                </button>
+            </a>
         </form>
     </div>
 </nav>
