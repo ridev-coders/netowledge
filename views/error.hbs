@@ -1,2 +1,12 @@
-{{message}}
-{{error.stack}}
+{{!-- {{> nav}} --}}
+<!-- end header -->
+<!-- start error message -->
+<div class="container mt-3">
+    <div class="alert alert-danger">
+        {{message}}
+    </div>
+    <div class="error_message">
+        {{error.stack}}
+    </div>
+</div>
+<!-- end error message -->
