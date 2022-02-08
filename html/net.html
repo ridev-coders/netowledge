@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="../public/css/bootstrap.css" />
+    <link rel="stylesheet" href="./stylesheet.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar header">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img
+            src="../public/images/netowledge-logo-white.png"
+            alt=""
+            width="250"
+            height="40"
+          />
+        </a>
+        <form class="d-flex gap-2">
+          <input
+            class="form-control me-5 searchBar"
+            type="search"
+            style="width: 200 px"
+            placeholder="Search a Storm or a topic"
+            aria-label="Search"
+          />
+          <button type="button" class="btn btn-outline-secondary headerButton">
+            Marco
+          </button>
+          <button type="button" class="btn btn-outline-secondary headerButton">
+            Logout
+          </button>
+        </form>
+      </div>
+    </nav>
+    <!-- Button trigger modal -->
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+    >
+      Launch a Storm
+    </button>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Generate a Storm</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <!-- contenuto modale -->
+          <div class="modal-body">
+            <div class="form-floating">
+              <textarea
+                class="form-control mb-3"
+                placeholder="Leave a title here"
+                id="floatingTextarea"
+              ></textarea>
+              <label for="floatingTextarea">Storm Title</label>
+            </div>
+            <form class="" action="index.html" method="post">
+              <div class="form-floating">
+                <textarea
+                  class="form-control"
+                  placeholder="Write the storm here"
+                  id="floatingTextarea2"
+                  style="height: 100px"
+                ></textarea>
+                <label for="floatingTextarea2">Write a storm...</label>
+              </div>
+            </form>
+          </div>
+          <div
+            class="modal-footer d-grid gap-2 d-md-flex justify-content-md-end"
+          >
+            <button
+              type="button"
+              class="btn btn-outline-secondary"
+              data-bs-dismiss="modal"
+            >
+              Delete
+            </button>
+            <button type="button" class="btn btn-outline-primary launchStorm">
+              Launch the Storm
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
