@@ -18,43 +18,47 @@
                     <!-- Create a storm focused window -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">
-                                        Create a Storm
-                                    </h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <!-- contenuto modale -->
-                                <div class="modal-body">
-                                    <div class="form-floating">
-                                        <textarea class="form-control mb-3" placeholder="Leave a title here" id="floatingTextarea"></textarea>
-                                        <label for="floatingTextarea">Storm Title</label>
+                            {{!-- storm form --}}
+                            <form action="/storms/create" method="post">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">
+                                            Create a Storm
+                                        </h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <form class="" action="index.html" method="post">
+                                    <!-- contenuto modale -->
+                                    <div class="modal-body">
                                         <div class="form-floating">
-                                            <textarea class="form-control" placeholder="Write the storm here" id="floatingTextarea2" style="height: 100px"></textarea>
-                                            <label for="floatingTextarea2">Write a storm...</label>
+                                            <textarea class="form-control mb-3" placeholder="Leave a title here" id="floatingTextarea"></textarea>
+                                            <label for="floatingTextarea">Storm Title</label>
                                         </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer d-grid gap-2 d-md-flex justify-content-md-end">
-                                    <button
-                                    type="button"
-                                    class="btn btn-outline-secondary"
-                                    data-bs-dismiss="modal"
-                                    >
-                                    Delete
-                                    </button>
-                                    <button
-                                    type="button"
-                                    class="btn btn-outline-primary launchStorm"
-                                    >
-                                    Launch the Storm
-                                    </button>
+                                        <form class="" action="index.html" method="post">
+                                            <div class="form-floating">
+                                                <textarea class="form-control" placeholder="Write the storm here" id="floatingTextarea2" style="height: 100px"></textarea>
+                                                <label for="floatingTextarea2">Write a storm...</label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer d-grid gap-2 d-md-flex justify-content-md-end">
+                                        <button
+                                        type="button"
+                                        class="btn btn-outline-secondary"
+                                        data-bs-dismiss="modal"
+                                        >
+                                        Delete
+                                        </button>
+                                        <button
+                                        type="button"
+                                        class="btn btn-outline-primary launchStorm"
+                                        >
+                                        Launch the Storm
+                                        </button>
 
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
+                            {{!-- end storm form --}}
                         </div>
                     </div>
                     <!-- End a storm focused window -->
