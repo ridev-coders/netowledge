@@ -15,16 +15,16 @@ module.exports = mongoose.model('storms', {
     ratings: [{
         topic: {
             type: ObjectId,
-            required: true,
+            // required: true,
             ref: 'topics'
         },
         pertinence: {
             type: Number,
-            required: true
+            // required: true
         },
         credibility: {
             type: Number,
-            required: true
+            // required: true
         }
     }]
 })

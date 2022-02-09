@@ -30,15 +30,15 @@
                                     <!-- contenuto modale -->
                                     <div class="modal-body">
                                         <div class="form-floating">
-                                            <textarea class="form-control mb-3" placeholder="Leave a title here" id="floatingTextarea"></textarea>
+                                            <textarea class="form-control mb-3" placeholder="Leave a title here" id="floatingTextarea" name="title"></textarea>
                                             <label for="floatingTextarea">Storm Title</label>
                                         </div>
-                                        <form class="" action="index.html" method="post">
+                                        {{!-- <form class="" action="index.html" method="post"> --}}
                                             <div class="form-floating">
-                                                <textarea class="form-control" placeholder="Write the storm here" id="floatingTextarea2" style="height: 100px"></textarea>
+                                                <textarea class="form-control" placeholder="Write the storm here" id="floatingTextarea2" style="height: 100px" name="text"></textarea>
                                                 <label for="floatingTextarea2">Write a storm...</label>
                                             </div>
-                                        </form>
+                                        {{!-- </form> --}}
                                     </div>
                                     <div class="modal-footer d-grid gap-2 d-md-flex justify-content-md-end">
                                         <button
@@ -49,7 +49,7 @@
                                         Delete
                                         </button>
                                         <button
-                                        type="button"
+                                        {{!-- type="button" --}}
                                         class="btn btn-outline-primary launchStorm"
                                         >
                                         Launch the Storm

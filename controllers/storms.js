@@ -4,8 +4,7 @@ const express = require('express')
 const router = express.Router()
     // const getTopics = require('../services/ml').getTopics
 const ml = require('../services/ml')
-
-// const Storms = require('../models/storms')
+const Storms = require('../models/storms')
 
 
 //Create requests GET / POST
@@ -36,14 +35,26 @@ router.post('/create', async(req, res, next) => {
             res.redirect('auth/login')
         } else {
             console.log('post request: create storm')
-            let request_from_user_page = true
+            let request_from_user_page = false
             if (request_from_user_page) {
+                console.log('user request from user storms page')
+                res.redirect('storms/:username')
+            } else {
+                console.log('user request from storms page')
+
+                // test topic function
                 let storm_text = 'Cats are small. Dogs are big. Cats like to chase mice. Dogs like to eat bones.'
                 let topics = ml.getTopics(storm_text)
                 console.log(topics)
-                res.redirect('storms/list')
-            } else {
-                res.redirect('storms/:username')
+
+                req.body.author = req.user._id
+                let storm = await Storms.create(req.body)
+                if (storm) {
+                    console.log('storm created')
+                    console.log('id: ', storm._id)
+                    res.redirect('/')
+                }
+
             }
         }
     } catch (err) { next(err) }
