@@ -15,7 +15,9 @@
     <div class="col-2">colonna filtri?</div>
     <div class="col-10">
 
-      {{>storm}}
+      {{#each storms as |storm|}}
+        {{>storm storm=storm}}
+      {{/each}}
       
     </div>
   </div>
