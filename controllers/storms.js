@@ -13,7 +13,7 @@ router.get('/', async(req, res, next) => {
         console.log('get request: storms')
         console.log('logged user is: ', req.user)
         console.log('looking for storms...')
-        let storms = await Storms.find().populate('author')
+        let storms = await Storms.find().populate('author').sort({ "create_date": -1 })
             // render the page
         res.render('storms/list', { user: req.user, storms })
     } catch (err) {

@@ -12,6 +12,10 @@ module.exports = mongoose.model('storms', {
         ref: 'users',
         required: true
     },
+    create_date: {
+        type: Date,
+        default: Date.now
+    },
     ratings: [{
         topic: {
             type: ObjectId,
