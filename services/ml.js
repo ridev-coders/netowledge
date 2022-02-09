@@ -1,7 +1,8 @@
-const getTopics = (text, n_topics = 1, n_terms = 5) => {
+const getTerms = (text, n_topics = 1, n_terms = 5) => {
     // this functions extracts terms to identify topics,
     // for the moment we use the terms as topics,
     //  we will adjust it in the future
+    console.log('text is: ', text)
     var lda = require('lda');
 
     // Extract sentences.
@@ -10,8 +11,15 @@ const getTopics = (text, n_topics = 1, n_terms = 5) => {
     // Run LDA to get terms for n_topics (n_terms each).
     var result = lda(documents, n_topics, n_terms);
 
-    console.log(result)
+    // return the values
+    console.log('result is: ', result)
+    return result
 }
 
-// module.exports = { funct1, funct2 }
-module.exports = { getTopics }
+const getTopics = (terms) => {
+    labels = terms.map(t => t.term)
+    values = terms.map(t => t.probability)
+    return [labels, values]
+}
+
+module.exports = { getTerms, getTopics }
