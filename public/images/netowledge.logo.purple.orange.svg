@@ -17,7 +17,7 @@
    id="svg1022"
    sodipodi:docname="netowledge.logo.purple.orange.svg"
    inkscape:version="1.0 (4035a4f, 2020-05-01)"
-   inkscape:export-filename="/Volumes/Data/gdrive-ridev/progetti/netowledge/netowledge/public/images/netowledge-logo-white.png"
+   inkscape:export-filename="/Volumes/Data/gdrive-ridev/progetti/netowledge/netowledge/public/images/netowledge-logo-white-orange.png"
    inkscape:export-xdpi="42.131569"
    inkscape:export-ydpi="42.131569">
   <metadata
@@ -72,8 +72,8 @@
      id="namedview1024"
      showgrid="false"
      inkscape:zoom="0.73105891"
-     inkscape:cx="432.62859"
-     inkscape:cy="292.61376"
+     inkscape:cx="490.43401"
+     inkscape:cy="337.75376"
      inkscape:window-x="0"
      inkscape:window-y="25"
      inkscape:window-maximized="0"
@@ -90,7 +90,7 @@
      inkscape:groupmode="layer"
      id="layer1"
      inkscape:label="bg"
-     style="display:inline">
+     style="display:none">
     <rect
        ry="36.118065"
        y="-97.702309"
@@ -366,6 +366,7 @@
     </g>
   </g>
   <g
+     sodipodi:insensitive="true"
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="logo"
