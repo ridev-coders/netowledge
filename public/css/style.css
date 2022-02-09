@@ -1,3 +1,8 @@
+.themeColor {
+    color: #460f8c
+}
+
+
 /* login */
 
 .bg_image {
@@ -52,4 +57,20 @@
 
 .userHeader {
     color: #ffffff;
+}
+
+
+/* classe foto avatar */
+
+.avatar-sm {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+
+/* bordi card per inserire STORM */
+
+.stormCard {
+    border-radius: 2rem;
 }
