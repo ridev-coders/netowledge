@@ -2,25 +2,10 @@
 const { query } = require('express');
 const express = require('express')
 const router = express.Router()
-    // const Storms = require('../models/storms')
+    // const getTopics = require('../services/ml').getTopics
+const ml = require('../services/ml')
 
-// my functions 
-
-const getTopics = (text, n_topics = 1, n_terms = 5) => {
-    // this functions extracts terms to identify topics,
-    // for the moment we use the terms as topics,
-    //  we will adjust it in the future
-    var lda = require('lda');
-
-    // Extract sentences.
-    var documents = text.match(/[^\.!\?]+[\.!\?]+/g);
-
-    // Run LDA to get terms for n_topics (n_terms each).
-    var result = lda(documents, n_topics, n_terms);
-
-    console.log(result)
-}
-
+// const Storms = require('../models/storms')
 
 
 //Create requests GET / POST
@@ -28,6 +13,9 @@ router.get('/', async(req, res, next) => {
     try {
         console.log('get request: storms')
         console.log('logged user is: ', req.user)
+        let storm_text = 'Cats are small. Dogs are big. Cats like to chase mice. Dogs like to eat bones.'
+        let topics = ml.getTopics(storm_text)
+        console.log(topics)
         res.render('storms/list', { user: req.user })
     } catch (err) {
         next(err)
@@ -51,7 +39,8 @@ router.post('/create', async(req, res, next) => {
             let request_from_user_page = true
             if (request_from_user_page) {
                 let storm_text = 'Cats are small. Dogs are big. Cats like to chase mice. Dogs like to eat bones.'
-                let topics = getTopics(storm_text)
+                let topics = ml.getTopics(storm_text)
+                console.log(topics)
                 res.redirect('storms/list')
             } else {
                 res.redirect('storms/:username')
