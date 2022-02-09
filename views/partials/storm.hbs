@@ -1,9 +1,18 @@
 <div class="card w-75 mb-3">
     <div class="card-body">
         <h5 class="card-title">{{storm.author.name}}</h5>
+        <div>
+            <canvas id="myChart"></canvas>
+        </div>
         <p class="card-text">
             {{storm.text}}
         </p>
         <a href="#" class="btn btn-primary">Button</a>
     </div>
 </div>
+<script>
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+</script>

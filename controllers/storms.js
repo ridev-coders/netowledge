@@ -4,6 +4,7 @@ const express = require('express')
 const router = express.Router()
     // const getTopics = require('../services/ml').getTopics
 const ml = require('../services/ml')
+const chart = require('../services/charts')
 const Storms = require('../models/storms')
 
 
@@ -49,8 +50,15 @@ router.post('/create', async(req, res, next) => {
                     console.log('storm created')
                     console.log('id: ', storm._id)
                         // test topic function
-                    let topics = ml.getTopics(storm.text)
-                    console.log(topics)
+                        // get topics
+                    let topics = ml.getTopics(ml.getTerms(storm.text, 1, 4)[0])
+                    console.log('topics:', topics)
+                        // create the chart
+                    let chart_config = chart.chartConfig(topics)
+                    const myChart = new chart.Chart(
+                        document.getElementById('myChart'),
+                        chart_config
+                    );
                     res.redirect('/')
                 }
 
