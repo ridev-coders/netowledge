@@ -12,9 +12,6 @@ router.get('/', async(req, res, next) => {
     try {
         console.log('get request: storms')
         console.log('logged user is: ', req.user)
-        let storm_text = 'Cats are small. Dogs are big. Cats like to chase mice. Dogs like to eat bones.'
-        let topics = ml.getTopics(storm_text)
-        console.log(topics)
         res.render('storms/list', { user: req.user })
     } catch (err) {
         next(err)
@@ -42,16 +39,15 @@ router.post('/create', async(req, res, next) => {
             } else {
                 console.log('user request from storms page')
 
-                // test topic function
-                let storm_text = 'Cats are small. Dogs are big. Cats like to chase mice. Dogs like to eat bones.'
-                let topics = ml.getTopics(storm_text)
-                console.log(topics)
 
                 req.body.author = req.user._id
                 let storm = await Storms.create(req.body)
                 if (storm) {
                     console.log('storm created')
                     console.log('id: ', storm._id)
+                        // test topic function
+                    let topics = ml.getTopics(storm.text)
+                    console.log(topics)
                     res.redirect('/')
                 }
 
