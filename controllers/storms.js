@@ -87,7 +87,7 @@ router.post('/create', async(req, res, next) => {
                         // add topics in db if new
                     let topic_titles = ml.getTopicsTitles(topics[0])
                     createTopics(topic_titles)
-                        // add empty skill to user if new
+                        // add skill with score:0 to the user if the skill is a new one
                     topic_titles.forEach(t => skills.addNewSkillToUser(req.user, { topic: t, score: 0 }))
                         // TODO: update skill score of user
                     res.redirect('/')
