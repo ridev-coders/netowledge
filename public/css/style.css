@@ -43,6 +43,7 @@
 }
 
 .searchBar {
+  /* searchbar style */
   border-radius: 20px;
   width: 50vh;
 }
@@ -57,25 +58,36 @@
   color: #ffffff;
 }
 
-/* classe foto avatar */
-
+/* card InsertNewStorm */
 .avatar-sm {
+  /* avatar sizing */
   border-radius: 50%;
   width: 50px;
   height: 50px;
 }
 
-/* bordi card per inserire STORM */
-
 .stormCard {
+  /* border  */
   border-radius: 2rem;
 }
 
-/* class to render icon upload */
+/* CreateStorm modal */
+
 .image-upload > input {
+  /* class to render icon upload */
   display: none;
 }
-/* class to take margin top from the text area in the storm modal */
 .image-upload {
+  /* take margin top from the text area */
   margin-top: 5px;
+}
+
+/* published Storm */
+.stormAuthor {
+  /* alignement of author near to avatar image in a published storm */
+  display: inline;
+}
+
+.publishedStorm {
+  padding-top: 0.5%;
 }

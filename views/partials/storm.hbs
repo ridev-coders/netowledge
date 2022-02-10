@@ -1,7 +1,8 @@
 <div class="card w-75 mb-3">
-    <div class="card-body">
-        <h5 class="card-title">{{storm.author.name}}</h5>
-        <p class="card-text">
+    <div class="card-body publishedStorm">
+			<img src="{{storm.author.avatar}}" class="img-fluid avatar avatar-sm mt-2 ms-4" alt="..." />
+        <h5 class="card-title stormAuthor">{{storm.author.name}}</h5>
+        <p class="card-text mt-2">
             {{storm.text}}
         </p>
         <a href="#" class="btn btn-primary">Button</a>
