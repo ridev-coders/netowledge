@@ -91,3 +91,41 @@
 .publishedStorm {
   padding-top: 0.5%;
 }
+.stormCard {
+  border-radius: 2rem;
+}
+
+/* topic chart */
+
+.bar {
+  height: 30px;
+  margin-left: 100px;
+}
+
+.bar label {
+  margin-left: -90px;
+  margin-top: 8px;
+  display: inline-block;
+  font-family: sans-serif;
+  font-size: 12px;
+}
+
+.bar:nth-child(1) {
+  background: #ff6363;
+}
+
+.bar:nth-child(2) {
+  background: #ffab76;
+}
+
+.bar:nth-child(3) {
+  background: #fffda2;
+}
+
+.bar:nth-child(4) {
+  background: #baffb4;
+}
+
+.bar:nth-child(5) {
+  background: #a8ece7;
+}
