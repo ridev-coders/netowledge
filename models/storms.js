@@ -18,9 +18,8 @@ module.exports = mongoose.model('storms', {
     },
     ratings: [{
         topic: {
-            type: ObjectId,
+            type: String,
             // required: true,
-            ref: 'topics'
         },
         pertinence: {
             type: Number,

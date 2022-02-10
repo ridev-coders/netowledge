@@ -21,6 +21,10 @@ const createNewTopic = async(topic) => {
     }
 }
 
+const addTopicAndPertinence = async(storm) => {
+
+}
+
 const createTopics = (topic_titles) => {
     // iterate the array of topic titles to eventually create new titles
     topic_titles.forEach(t => createNewTopic(t))
@@ -62,17 +66,23 @@ router.post('/create', async(req, res, next) => {
                 res.redirect('storms/:username')
             } else {
                 console.log('user request from storms page')
-
-
                 req.body.author = req.user._id
+                    // calculate topics
+                let topics = ml.getTopics(req.body.text)
+                    // add topics to the request
+                req.body.ratings = topics[0]
+                console.log(req)
+                    // create storm in db
                 let storm = await Storms.create(req.body)
                 if (storm) {
                     console.log('storm created in db')
                     console.log('id: ', storm._id)
-                        // test topic function
+                        // calculate topics
                     let topics = ml.getTopics(storm.text)
-                    createTopics(topics[0])
-                    console.log(topics)
+                        // add topics in db if new
+                    createTopics(ml.getTopicsTitles(topics[0]))
+                        // add topics titles and pertinences in db
+                    addTopicAndPertinence(topics)
                     res.redirect('/')
                 }
 
