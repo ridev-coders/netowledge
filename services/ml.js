@@ -6,7 +6,8 @@ const getTopics = (text, n_topics = 1, n_terms = 5) => {
     var lda = require('lda');
 
     // Extract sentences.
-    var documents = text.match(/[^\.!\?]+[\.!\?]+/g);
+    var documents = text.match(/[^\.!\?]+[\.!\?]+/g) ? text.match(/[^\.!\?]+[\.!\?]+/g) : [text]
+    console.log(documents)
 
     // Run LDA to get terms for n_topics (n_terms each).
     var result = lda(documents, n_topics, n_terms);
@@ -17,7 +18,8 @@ const getTopics = (text, n_topics = 1, n_terms = 5) => {
         t['pertinence'] = t['probability']
         delete t['term']
         delete t['probability']
-        t.pertinence *= 100
+        t.pertinence = Math.ceil(t.pertinence * 100)
+            // t.pertinence *= Math.ceil(t.pertinence * 100)
     })
 
     // return the values
