@@ -7,6 +7,7 @@ const ml = require('../services/ml')
 const Storms = require('../models/storms')
 const Topics = require('../models/topics')
 const moment = require('moment')
+const skills = require('../services/skills')
 
 // Functions
 const createNewTopic = async(topic) => {
@@ -20,10 +21,6 @@ const createNewTopic = async(topic) => {
         let new_topic = await Topics.create({ title: topic })
         console.log('topic created:', new_topic)
     }
-}
-
-const addTopicAndPertinence = async(storm) => {
-
 }
 
 const createTopics = (topic_titles) => {
@@ -88,9 +85,11 @@ router.post('/create', async(req, res, next) => {
                         // calculate topics
                     let topics = ml.getTopics(storm.text)
                         // add topics in db if new
-                    createTopics(ml.getTopicsTitles(topics[0]))
-                        // add topics titles and pertinences in db
-                    addTopicAndPertinence(topics)
+                    let topic_titles = ml.getTopicsTitles(topics[0])
+                    createTopics(topic_titles)
+                        // add empty skill to user if new
+                    topic_titles.forEach(t => skills.addNewSkillToUser(req.user, { topic: t, score: 0 }))
+                        // TODO: update skill score of user
                     res.redirect('/')
                 }
 
