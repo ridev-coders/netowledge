@@ -16,9 +16,12 @@ const getTerms = (text, n_topics = 1, n_terms = 5) => {
     return result
 }
 
-const getTopics = (terms) => {
-    labels = terms.map(t => t.term)
-    values = terms.map(t => t.probability)
+const getTopics = (text) => {
+    // returns array with labels and values
+    let terms = getTerms(text)
+    console.log('terms:', terms)
+    let labels = terms[0].map(t => t.term)
+    let values = terms[0].map(t => t.probability)
     return [labels, values]
 }
 
