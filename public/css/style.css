@@ -74,3 +74,39 @@
 .stormCard {
     border-radius: 2rem;
 }
+
+
+/* topic chart */
+
+.bar {
+    height: 30px;
+    margin-left: 100px;
+}
+
+.bar label {
+    margin-left: -90px;
+    margin-top: 8px;
+    display: inline-block;
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
+.bar:nth-child(1) {
+    background: #FF6363;
+}
+
+.bar:nth-child(2) {
+    background: #FFAB76;
+}
+
+.bar:nth-child(3) {
+    background: #FFFDA2;
+}
+
+.bar:nth-child(4) {
+    background: #BAFFB4;
+}
+
+.bar:nth-child(5) {
+    background: #A8ECE7;
+}
