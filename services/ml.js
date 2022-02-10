@@ -11,12 +11,13 @@ const getTopics = (text, n_topics = 1, n_terms = 5) => {
     // Run LDA to get terms for n_topics (n_terms each).
     var result = lda(documents, n_topics, n_terms);
 
-    // use 
+    // use differents labels and using % prob
     result[0].map(t => {
         t['topic'] = t['term']
         t['pertinence'] = t['probability']
         delete t['term']
         delete t['probability']
+        t.pertinence *= 100
     })
 
     // return the values
