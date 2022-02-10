@@ -6,6 +6,7 @@ const router = express.Router()
 const ml = require('../services/ml')
 const Storms = require('../models/storms')
 const Topics = require('../models/topics')
+const moment = require('moment')
 
 // Functions
 const createNewTopic = async(topic) => {
@@ -36,8 +37,15 @@ router.get('/', async(req, res, next) => {
         console.log('get request: storms')
         console.log('logged user is: ', req.user)
         console.log('looking for storms...')
-        let storms = await Storms.find().populate('author').sort({ "create_date": -1 })
-            // render the page
+        let storms = await Storms.find().populate('author').sort({ "create_date": -1 }).lean()
+            // map creation dates in storm
+            // storms.forEach(storm => storm.map(d => moment(d).fsormat('DD/MM/YYYY')))
+        storms.map(storm => {
+            storm.create_date = moment(storm.create_date).format('DD/MM/YYYY')
+            return storm
+        })
+
+        // render the page
         res.render('storms/list', { user: req.user, storms })
     } catch (err) {
         next(err)
