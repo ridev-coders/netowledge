@@ -1,112 +1,131 @@
 .themeColor {
-    color: #460f8c
+  color: #460f8c;
 }
-
 
 /* login */
 
 .bg_image {
-    height: 100vh;
-    background-size: cover;
-    display: grid;
-    justify-content: center;
-    align-content: center;
+  height: 100vh;
+  background-size: cover;
+  display: grid;
+  justify-content: center;
+  align-content: center;
 }
 
 .login_card {
-    width: 40vh;
-    background-color: rgb(250, 249, 249);
-    box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.5);
-    padding: 12px;
+  width: 40vh;
+  background-color: rgb(250, 249, 249);
+  box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.5);
+  padding: 12px;
 }
 
 .signup_card {
-    width: 70vh;
-    background-color: rgb(250, 249, 249);
-    box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.5);
-    padding: 12px;
+  width: 70vh;
+  background-color: rgb(250, 249, 249);
+  box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.5);
+  padding: 12px;
 }
 
 .center {
-    display: block;
-    margin: auto;
+  display: block;
+  margin: auto;
 }
-
 
 /* navbar */
 
 .launchStorm {
-    color: #460f8c;
-    border-color: #460f8c;
+  color: #460f8c;
+  border-color: #460f8c;
 }
 
 .header {
-    background-color: #460f8c;
+  background-color: #460f8c;
 }
 
 .searchBar {
-    border-radius: 20px;
-    width: 50vh;
+  /* searchbar style */
+  border-radius: 20px;
+  width: 50vh;
 }
 
 .headerButton {
-    color: #ffffff;
-    border-color: #ffffff;
-    border-radius: 10px;
+  color: #ffffff;
+  border-color: #ffffff;
+  border-radius: 10px;
 }
 
 .userHeader {
-    color: #ffffff;
+  color: #ffffff;
 }
 
-
-/* classe foto avatar */
-
+/* card InsertNewStorm */
 .avatar-sm {
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
+  /* avatar sizing */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
 }
-
-
-/* bordi card per inserire STORM */
 
 .stormCard {
-    border-radius: 2rem;
+  /* border  */
+  border-radius: 2rem;
 }
 
+/* CreateStorm modal */
+
+.image-upload > input {
+  /* class to render icon upload */
+  display: none;
+}
+.image-upload {
+  /* take margin top from the text area */
+  margin-top: 5px;
+}
+
+/* published Storm */
+.stormAuthor {
+  /* alignement of author near to avatar image in a published storm */
+  display: inline;
+}
+
+.publishedStorm {
+  padding-top: 0.5%;
+}
+.stormCard {
+  border-radius: 2rem;
+}
 
 /* topic chart */
 
 .bar {
-    height: 30px;
-    margin-left: 100px;
+  height: 30px;
+  margin-left: 100px;
 }
 
 .bar label {
-    margin-left: -90px;
-    margin-top: 8px;
-    display: inline-block;
-    font-family: sans-serif;
-    font-size: 12px;
+  margin-left: -90px;
+  margin-top: 8px;
+  display: inline-block;
+  font-family: sans-serif;
+  font-size: 12px;
 }
 
 .bar:nth-child(1) {
-    background: #FF6363;
+  background: #ff6363;
 }
 
 .bar:nth-child(2) {
-    background: #FFAB76;
+  background: #ffab76;
 }
 
 .bar:nth-child(3) {
-    background: #FFFDA2;
+  background: #fffda2;
 }
 
 .bar:nth-child(4) {
-    background: #BAFFB4;
+  background: #baffb4;
 }
 
 .bar:nth-child(5) {
-    background: #A8ECE7;
+  background: #a8ece7;
 }

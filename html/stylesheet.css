@@ -31,3 +31,11 @@
 .stormCard {
   border-radius: 2rem;
 }
+/* class to render icon upload */
+.image-upload > input {
+  display: none;
+}
+/* class to take margin top from the text area in the storm modal */
+.image-upload {
+  margin-top: 5px;
+}

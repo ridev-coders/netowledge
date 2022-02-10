@@ -1,9 +1,9 @@
 <!-- Card: open a storm -->
-<div class="card mb-3 stormCard" style="max-width: 540px;">
-            
+<div class="card mb-3 stormCard" style="max-width: 800px;">
+
     <div class="row g-0 ">
         <div class="col-md-4">
-        <img src="https://randomuser.me/api/portraits/men/30.jpg" class="img-fluid avatar avatar-sm mt-3 ms-4" alt="..." />
+        <img src="{{user.avatar}}" class="img-fluid avatar avatar-sm mt-2 ms-4" alt="..." />
         </div>
 
 
@@ -29,13 +29,18 @@
                                     </div>
                                     <!-- contenuto modale -->
                                     <div class="modal-body">
-                                        <div class="form-floating">
-                                            <textarea class="form-control mb-3" placeholder="Leave a title here" id="floatingTextarea" name="title"></textarea>
-                                            <label for="floatingTextarea">Storm Title</label>
-                                        </div>
+
                                         {{!-- <form class="" action="index.html" method="post"> --}}
                                             <div class="form-floating">
-                                                <textarea class="form-control" placeholder="Write the storm here" id="floatingTextarea2" style="height: 100px" name="text"></textarea>
+                                                <textarea class="form-control" placeholder="Write the storm here" id="floatingTextarea2" style="height: 200px" name="text"></textarea>
+																								<!-- icon to upload file on a new storm -->
+																								<div class="image-upload">
+                                									<label for="file-input">
+                                  									<img src="/images/attachment_79877.png" />
+                                									</label>
+                                									<input id="file-input" type="file" />
+                              									</div>
+																								<!-- end icon to upload -->
                                                 <label for="floatingTextarea2">Write a storm...</label>
                                             </div>
                                         {{!-- </form> --}}
