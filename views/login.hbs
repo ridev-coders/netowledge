@@ -16,9 +16,20 @@
                 <button class="btn btn-success mt-2" type="login">Login</button>
             </div>
         </form>
-        <form action="/auth/google-login" method="post">
+        <form action="/auth/google-login" id="google-signin-form" method="post">
             <div class="mb-3">
-                <button class="btn btn-success mt-2" type="login">Login with google</button>
+                {{!-- google sign in button --}}
+                <div class='g-sign-in-button ms-0' id="google-signin-button">
+                    <div class=content-wrapper>
+                        <div class='logo-wrapper'>  
+                            <img src='https://developers.google.com/identity/images/g-logo.png'>
+                        </div>  
+                        <span class='text-container'> 
+                            <span>Sign in with Google</span>
+                        </span>
+                    </div>  
+                </div>
+                {{!-- end google sign in button --}}
             </div>
         </form>
 
