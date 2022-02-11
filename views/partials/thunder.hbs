@@ -1,0 +1,29 @@
+<!-- thunder posted under the Storm -->
+<div class="card border-top-0 mb-3 border-end-0 border-start-0 mt-3">
+	<ul class="nav nav-tabs">
+		<li class="nav-item">
+			<label for="card-text" class="nav-link active d-grid">
+                <div class="row">
+                    <div class="col col-md-auto">
+                        <img
+                        src="{{thunder.author.avatar}}"
+                        class="img-fluid avatar avatar-sm mt-1 ms-2 col"
+                        alt=""
+                        />
+                    </div>
+                    <div class="col">
+                        <div>{{thunder.author.name}}</div>
+                        <small>{{thunder.create_date}}</small>
+                    </div>
+                </div>
+
+            </label>
+        </li>
+    </ul>
+    <div class="card-body border publishedStorm border-top-0 border-bottom-0">
+			<!-- <img src="{{storm.author.avatar}}" class="img-fluid avatar avatar-sm mt-2 ms-4" alt="..." />
+        <h5 class="card-title stormAuthor">{{storm.author.name}}</h5> -->
+        <p class="card-text mt-2">
+            {{thunder.text}}
+        </p>
+		</div>
