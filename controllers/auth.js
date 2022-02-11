@@ -2,6 +2,7 @@
 const express = require('express')
 const router = express.Router()
 const Users = require('../models/users')
+const passport = require('passport')
 
 //Create requests GET / POST
 // // TEMPLATE FOR ALL REQUESTS:
@@ -44,6 +45,23 @@ router.post('/login', async(req, res, next) => {
         }
     } catch (err) { next(err) }
 })
+
+router.post(
+    '/google-login',
+    passport.authenticate('google', { scope: ['profile', 'email'] }),
+    (req, res, next) => {
+        console.log('redirecting to google auth.')
+        console.log('user: ', req.user)
+    }
+)
+
+router.get(
+    '/google',
+    passport.authenticate('google', { failureRedirect: '/auth/login' }),
+    (req, res) => {
+        res.redirect('/')
+    }
+)
 
 router.post('/signup', async(req, res, next) => {
     try {
