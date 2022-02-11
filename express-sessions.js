@@ -16,18 +16,19 @@ module.exports = app => {
 
     // local
     passport.use(
-            new LocalStrategy((email, password, done) => {
-                process.nextTick(async() => {
-                    let user = await Users.findOne({ email: email })
-                    if (user) {
-                        return done(null, user)
-                    } else {
-                        return done(null, false, 'user not found')
-                    }
-                })
+        new LocalStrategy((email, password, done) => {
+            process.nextTick(async() => {
+                let user = await Users.findOne({ email: email })
+                if (user) {
+                    return done(null, user)
+                } else {
+                    return done(null, false, 'user not found')
+                }
             })
-        )
-        // google
+        })
+    )
+
+    // google
     passport.use(new GoogleStrategy({
             clientID: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
@@ -35,7 +36,9 @@ module.exports = app => {
         },
         (accessToken, refreshToken, profile, done) => {
             process.nextTick(async() => {
-                let user = await Users.findOne({ google: profile.username })
+                console.log('\nlogin with google...')
+                console.log(profile)
+                let user = await Users.findOne({ google: profile.id })
                 if (!user) {
                     user = await Users.create({
                         avatar: profile.picture,

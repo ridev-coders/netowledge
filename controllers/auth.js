@@ -23,33 +23,36 @@ router.get('/signup', (req, res) => {
     res.render('signup')
 })
 
-// router.post('/login', async(req, res, next) => {
-//     try {
-//         console.log('login session starts')
-//         let user = await Users.findOne({
-//             'email': req.body.email,
-//             'password': req.body.password
-//         })
-//         if (user) {
-//             req.login(user, (err) => {
-//                 if (err) {
-//                     throw err
-//                 } else {
-//                     console.log('logged in!')
-//                         // after login go to the houses list page
-//                     res.redirect('/')
-//                 }
-//             })
-//         } else {
-//             throw new Error('wrong username er/or password')
-//         }
-//     } catch (err) { next(err) }
-// })
+router.post('/login', async(req, res, next) => {
+    try {
+        console.log('login session starts')
+        let user = await Users.findOne({
+            'email': req.body.email,
+            'password': req.body.password
+        })
+        if (user) {
+            req.login(user, (err) => {
+                if (err) {
+                    throw err
+                } else {
+                    console.log('logged in!')
+                        // after login go to the houses list page
+                    res.redirect('/')
+                }
+            })
+        } else {
+            throw new Error('wrong username er/or password')
+        }
+    } catch (err) { next(err) }
+})
 
 router.post(
-    '/login',
+    '/google-login',
     passport.authenticate('google', { scope: ['profile', 'email'] }),
-    (req, res, next) => {}
+    (req, res, next) => {
+        console.log('redirecting to google auth.')
+        console.log('user: ', req.user)
+    }
 )
 
 router.get(
