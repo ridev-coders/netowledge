@@ -3,17 +3,28 @@
         <a class="navbar-brand" href="#">
             <img src="/images/netowledge-logo-white-orange.png" alt="" width="250" height="40" />
         </a>
-        <form class="d-flex gap-2">
-            <input class="form-control me-5 searchBar" type="search" style="width: 200 px" placeholder="Search a Storm or a topic" aria-label="Search" />
-            <button type="button" class="btn btn-outline-secondary headerButton me-2">
-                <img src="{{user.avatar}}" class="rounded-circle" style="height: 20px;">
-                    {{user.name}}
-            </button>
-            <a href="/auth/login">
-                <button type="button" class="btn btn-outline-secondary headerButton">
-                    Logout
-                </button>
-            </a>
-        </form>
+				<div class="d-flex gap-2">
+					<form>
+						<input class="form-control me-5 searchBar" type="search" style="width: 200 px" placeholder="Search a Storm or a topic" aria-label="Search" />
+					</form>
+
+					{{#if user}}
+					<button type="button" class="btn btn-outline-secondary headerButton me-2">
+						<img src="{{user.avatar}}" class="rounded-circle" style="height: 20px;">
+						{{user.name}}
+					</button>
+					<a href="/auth/logout">
+						<button type="button" class="btn btn-outline-secondary headerButton">
+							Logout
+						</button>
+					</a>
+					{{else}}
+					<a href="/auth/login">
+						<button type="button" class="btn btn-outline-secondary headerButton">
+							Login
+						</button>
+					</a>
+					{{/if}}
+				</div>
     </div>
 </nav>
