@@ -2,6 +2,7 @@
 const express = require('express')
 const router = express.Router()
 const Users = require('../models/users')
+const passport = require('passport')
 
 //Create requests GET / POST
 // // TEMPLATE FOR ALL REQUESTS:
@@ -22,28 +23,42 @@ router.get('/signup', (req, res) => {
     res.render('signup')
 })
 
-router.post('/login', async(req, res, next) => {
-    try {
-        console.log('login session starts')
-        let user = await Users.findOne({
-            'email': req.body.email,
-            'password': req.body.password
-        })
-        if (user) {
-            req.login(user, (err) => {
-                if (err) {
-                    throw err
-                } else {
-                    console.log('logged in!')
-                        // after login go to the houses list page
-                    res.redirect('/')
-                }
-            })
-        } else {
-            throw new Error('wrong username er/or password')
-        }
-    } catch (err) { next(err) }
-})
+// router.post('/login', async(req, res, next) => {
+//     try {
+//         console.log('login session starts')
+//         let user = await Users.findOne({
+//             'email': req.body.email,
+//             'password': req.body.password
+//         })
+//         if (user) {
+//             req.login(user, (err) => {
+//                 if (err) {
+//                     throw err
+//                 } else {
+//                     console.log('logged in!')
+//                         // after login go to the houses list page
+//                     res.redirect('/')
+//                 }
+//             })
+//         } else {
+//             throw new Error('wrong username er/or password')
+//         }
+//     } catch (err) { next(err) }
+// })
+
+router.post(
+    '/login',
+    passport.authenticate('google', { scope: ['profile', 'email'] }),
+    (req, res, next) => {}
+)
+
+router.get(
+    '/google',
+    passport.authenticate('google', { failureRedirect: '/auth/login' }),
+    (req, res) => {
+        res.redirect('/')
+    }
+)
 
 router.post('/signup', async(req, res, next) => {
     try {
