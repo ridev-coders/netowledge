@@ -28,25 +28,6 @@
         </p>
         {{>chart storm=storm}}
 				<!-- input text + range slider (write a thunder) -->
-				<form class="" action="index.html" method="post">
-                <input
-                  type="text"
-                  name=""
-                  placeholder="Launch a Thunder here..."
-                  value=""
-                  class="thunder"
-                />
-                <!-- range slider -->
-                <div class="slidecontainer">
-                  <input
-                    type="range"
-                    min="1"
-                    max="6"
-                    value="3"
-                    class="slider"
-                    id="myRange"
-                  />
-                </div>
-              </form>
+				{{>thunderize}}
     </div>
 </div>
