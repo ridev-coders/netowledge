@@ -26,9 +26,7 @@ module.exports = mongoose.model('users', {
     },
     skills: [{
         topic: {
-            type: ObjectId,
-            // required: true,
-            ref: 'topics'
+            type: String,
         },
         score: {
             type: Number,
