@@ -4,6 +4,7 @@ const ObjectId = mongoose.Schema.Types.ObjectId
 // Create the users moodel
 module.exports = mongoose.model('users', {
     avatar: String,
+    google: String,
     email: {
         type: String,
         required: true
@@ -14,7 +15,7 @@ module.exports = mongoose.model('users', {
     },
     password: {
         type: String,
-        required: true
+        required: function() { return this.google ? false : true }
     },
     born: {
         type: Date,
