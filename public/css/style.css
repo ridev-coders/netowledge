@@ -1,195 +1,196 @@
 .themeColor {
-  color: #460f8c;
+    color: #460f8c;
 }
 
 .themeBackgroundColor {
-  background-color: #460f8c;
-  color: #ffffff;
+    background-color: #460f8c;
+    color: #ffffff;
 }
 
 /* login */
 
 .bg_image {
-  height: 100vh;
-  background-size: cover;
-  display: grid;
-  justify-content: center;
-  align-content: center;
+    background-color: #460f8c;
+    height: 100vh;
+    background-size: cover;
+    display: grid;
+    justify-content: center;
+    align-content: center;
 }
 
 .login_card {
-  width: 40vh;
-  background-color: rgb(250, 249, 249);
-  box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.5);
-  padding: 12px;
+    width: 40vh;
+    background-color: rgb(250, 249, 249);
+    box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.5);
+    padding: 12px;
 }
 
 .signup_card {
-  width: 70vh;
-  background-color: rgb(250, 249, 249);
-  box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.5);
-  padding: 12px;
+    width: 70vh;
+    background-color: rgb(250, 249, 249);
+    box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.5);
+    padding: 12px;
 }
 
 .center {
-  display: block;
-  margin: auto;
+    display: block;
+    margin: auto;
 }
 
 /* navbar */
 
 .launchStorm {
-  color: #460f8c;
-  border-color: #460f8c;
+    color: #460f8c;
+    border-color: #460f8c;
 }
 
 .header {
-  background-color: #460f8c;
+    background-color: #460f8c;
 }
 
 .searchBar {
-  /* searchbar style */
-  border-radius: 5px;
-  width: 70vh;
-  border: none;
-  box-shadow: inset 0.2em 0.2em 3px rgba(0, 0, 0, 0.3);
+    /* searchbar style */
+    border-radius: 5px;
+    width: 70vh;
+    border: none;
+    box-shadow: inset 0.2em 0.2em 3px rgba(0, 0, 0, 0.3);
 }
 
 .headerButton {
-  color: #ffffff;
-  border-color: #ffffff;
-  border-radius: 5px;
-  border: 1px solid #ffffff;
-  box-shadow: inset 0.3em 0.2em 5px rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    border-color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid #ffffff;
+    box-shadow: inset 0.3em 0.2em 5px rgba(255, 255, 255, 0.2);
 }
 
 .userHeader {
-  color: #ffffff;
+    color: #ffffff;
 }
 
 /* card InsertNewStorm */
 .avatar-sm {
-  /* avatar sizing */
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
+    /* avatar sizing */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
 }
 
 .stormCard {
-  /* border  */
-  border-radius: 10px;
+    /* border  */
+    border-radius: 10px;
 }
 
 /* CreateStorm modal */
 
 .image-upload > input {
-  /* class to render icon upload */
-  display: none;
+    /* class to render icon upload */
+    display: none;
 }
 .image-upload {
-  /* take margin top from the text area */
-  margin-top: 5px;
+    /* take margin top from the text area */
+    margin-top: 5px;
 }
 
 /* published Storm */
 .stormAuthor {
-  /* alignement of author near to avatar image in a published storm */
-  display: inline;
+    /* alignement of author near to avatar image in a published storm */
+    display: inline;
 }
 
 .publishedStorm {
-  padding-top: 0.5%;
+    padding-top: 0.5%;
 }
 .stormCard {
-  border-radius: 2rem;
+    border-radius: 2rem;
 }
 
 /* topic chart */
 
 .bar {
-  height: 30px;
-  margin-left: 100px;
+    height: 30px;
+    margin-left: 100px;
 }
 
 .bar label {
-  margin-left: -90px;
-  margin-top: 8px;
-  display: inline-block;
-  font-family: sans-serif;
-  font-size: 12px;
+    margin-left: -90px;
+    margin-top: 8px;
+    display: inline-block;
+    font-family: sans-serif;
+    font-size: 12px;
 }
 
 .bar:nth-child(1) {
-  background: #ff6363;
+    background: #ff6363;
 }
 
 .bar:nth-child(2) {
-  background: #ffab76;
+    background: #ffab76;
 }
 
 .bar:nth-child(3) {
-  background: #fffda2;
+    background: #fffda2;
 }
 
 .bar:nth-child(4) {
-  background: #baffb4;
+    background: #baffb4;
 }
 
 .bar:nth-child(5) {
-  background: #a8ece7;
+    background: #a8ece7;
 }
 
 /* slider css */
 
 .slidecontainer {
-  width: 100%;
-  display: contents;
+    width: 100%;
+    display: contents;
 }
 
 .slider {
-  -webkit-appearance: none;
-  width: 15%;
-  height: 10px;
-  border-radius: 5px;
-  background: #d3d3d3;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: 0.2s;
-  transition: opacity 0.2s;
+    -webkit-appearance: none;
+    width: 15%;
+    height: 10px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
 }
 
 .slider:hover {
-  opacity: 1;
+    opacity: 1;
 }
 
 /* icon to rank on slider */
 .slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 23px;
-  height: 24px;
-  border: 0;
-  background: url('/images/pngegg.png');
-  background-size: 23px auto;
-  background-repeat: no-repeat;
-  cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 23px;
+    height: 24px;
+    border: 0;
+    background: url('/images/pngegg.png');
+    background-size: 23px auto;
+    background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
-  width: 23px;
-  height: 24px;
-  border: 0;
-  background: url('/images/pngegg.png');
-  cursor: pointer;
+    width: 23px;
+    height: 24px;
+    border: 0;
+    background: url('/images/pngegg.png');
+    cursor: pointer;
 }
 
 /* input text write a thunder */
 .thunder {
-  margin-right: 8px;
-  padding-left: 10px;
-  width: 70%;
-  border-radius: 8px;
-  margin-top: 10px;
-  border: 1px solid #d3d3d3;
-  box-shadow: inset 0.2em 0.1em 5px rgba(0, 0, 0, 0.2);
+    margin-right: 8px;
+    padding-left: 10px;
+    width: 70%;
+    border-radius: 8px;
+    margin-top: 10px;
+    border: 1px solid #d3d3d3;
+    box-shadow: inset 0.2em 0.1em 5px rgba(0, 0, 0, 0.2);
 }
