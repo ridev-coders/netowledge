@@ -93,11 +93,6 @@
 }
 /* navbar */
 
-.launchStorm {
-    color: #460f8c;
-    border-color: #460f8c;
-}
-
 .header {
     background-color: #460f8c;
     box-shadow: 0 3px 4px 0 rgb(0 0 0 / 20%);
@@ -139,6 +134,10 @@
 
 /* CreateStorm modal */
 
+.stormModalBody {
+    box-shadow: 6px 5px 2px 0 rgb(0 0 0 / 20%);
+}
+
 .image-upload > input {
     /* class to render icon upload */
     display: none;
@@ -146,6 +145,23 @@
 .image-upload {
     /* take margin top from the text area */
     margin-top: 5px;
+}
+
+.stormModal {
+    background-color: #7c7484;
+}
+.stormModalHeader {
+    color: white;
+}
+
+/* button "Launch the Storm" */
+.launchStorm {
+    color: #460f8c;
+    border-color: #460f8c;
+}
+
+.launchStorm:hover {
+    background-color: #460f8c;
 }
 
 /* published Storm */
