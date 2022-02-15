@@ -8,7 +8,7 @@ const Storms = require('../models/storms')
 const Topics = require('../models/topics')
 const moment = require('moment')
 const skills = require('../services/skills');
-const thunders = require('../models/thunders');
+const Thunders = require('../models/thunders');
 
 // Functions
 const createNewTopic = async(topic) => {
@@ -35,30 +35,21 @@ router.get('/', async(req, res, next) => {
         console.log('get request: storms')
         console.log('logged user is: ', req.user)
         console.log('looking for storms...')
-        let storms = await Storms.aggregate([{
-            $lookup: {
-                from: 'thunders',
-                localField: '_id',
-                foreignField: 'storm',
-                as: 'thunders'
-            }
-        }]).sort({ "create_date": -1 })
-        storms = await Storms.populate(storms, { path: 'author' })
-            // storms = await Storms.populate(storms, {
-            //     path: 'thunders',
-            //     populate: {
-            //         path: 'author',
-            //         model: 'Thunder'
-            //     }
-            // })
+        let storms = await Storms.find({}).populate('author').sort({ "create_date": -1 }).lean()
 
-        console.log('st2: ', JSON.stringify(storms[0], null, 2))
+        storms = await Promise.all(storms.map(async s => {
+            s.thunders = await Thunders.find({ storm: s._id }).populate('author')
+            s.create_date = moment(s.create_date).format('DD/MM/YYYY')
+            return s
+        }))
 
-        // map creation dates in storm
-        storms.map(storm => {
-            storm.create_date = moment(storm.create_date).format('DD/MM/YYYY')
-            return storm
-        })
+        console.log('st2: ', JSON.stringify(storms, null, 2))
+
+        // // map creation dates in storm
+        // storms.map(storm => {
+        //     storm.create_date = moment(storm.create_date).format('DD/MM/YYYY')
+        //     return storm
+        // })
 
         // render the page
         res.render('storms/list', { user: req.user, storms })
