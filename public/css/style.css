@@ -17,6 +17,11 @@
 .themeBackgroundColor {
     background-color: #460f8c;
     color: #ffffff;
+    width: 25vh;
+}
+
+.themeBackgroundColor:hover {
+    background-color: #;
 }
 
 /* login */
@@ -83,7 +88,7 @@
 
 .hitBack {
     margin-top: 15vh;
-    margin-left: -10vh;
+    margin-left: -5vh;
 }
 
 .deduce {
