@@ -7,7 +7,8 @@ const ml = require('../services/ml')
 const Storms = require('../models/storms')
 const Topics = require('../models/topics')
 const moment = require('moment')
-const skills = require('../services/skills')
+const skills = require('../services/skills');
+const thunders = require('../models/thunders');
 
 // Functions
 const createNewTopic = async(topic) => {
@@ -34,9 +35,26 @@ router.get('/', async(req, res, next) => {
         console.log('get request: storms')
         console.log('logged user is: ', req.user)
         console.log('looking for storms...')
-        let storms = await Storms.find().populate('author').sort({ "create_date": -1 }).lean()
-            // map creation dates in storm
-            // storms.forEach(storm => storm.map(d => moment(d).fsormat('DD/MM/YYYY')))
+        let storms = await Storms.aggregate([{
+            $lookup: {
+                from: 'thunders',
+                localField: '_id',
+                foreignField: 'storm',
+                as: 'thunders'
+            }
+        }]).sort({ "create_date": -1 })
+        storms = await Storms.populate(storms, { path: 'author' })
+            // storms = await Storms.populate(storms, {
+            //     path: 'thunders',
+            //     populate: {
+            //         path: 'author',
+            //         model: 'Thunder'
+            //     }
+            // })
+
+        console.log('st2: ', JSON.stringify(storms[0], null, 2))
+
+        // map creation dates in storm
         storms.map(storm => {
             storm.create_date = moment(storm.create_date).format('DD/MM/YYYY')
             return storm

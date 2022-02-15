@@ -31,4 +31,6 @@
         {{>thunderize storm=storm}}
     </div>
 </div>
-{{>thunder storm=storm}}
+{{#each storm.thunders as |thunder|}}
+    {{>thunder thunder=thunder}}
+{{/each}}
