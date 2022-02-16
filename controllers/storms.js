@@ -1,14 +1,17 @@
 // Import Packages
-const { query } = require('express');
+const { query } = require('express')
 const express = require('express')
 const router = express.Router()
-    // const getTopics = require('../services/ml').getTopics
+const moment = require('moment')
+// Import Services
 const ml = require('../services/ml')
+const skills = require('../services/skills')
+// Import Models
 const Storms = require('../models/storms')
 const Topics = require('../models/topics')
-const moment = require('moment')
-const skills = require('../services/skills');
-const Thunders = require('../models/thunders');
+const Thunders = require('../models/thunders')
+// Import Config
+const config = require('../config')
 
 // Functions
 const createNewTopic = async(topic) => {
@@ -45,12 +48,6 @@ router.get('/', async(req, res, next) => {
 
         console.log('st2: ', JSON.stringify(storms, null, 2))
 
-        // // map creation dates in storm
-        // storms.map(storm => {
-        //     storm.create_date = moment(storm.create_date).format('DD/MM/YYYY')
-        //     return storm
-        // })
-
         // render the page
         res.render('storms/list', { user: req.user, storms })
     } catch (err) {
@@ -74,31 +71,30 @@ router.post('/create', async(req, res, next) => {
             console.log('post request: create storm')
             let request_from_user_page = false
 
-
             if (request_from_user_page) {
                 console.log('user request from user storms page')
                 res.redirect('storms/:username')
             } else {
                 console.log('user request from storms page')
                 req.body.author = req.user._id
-                    // calculate topics
+                // calculate topics
                 let topics = ml.getTopics(req.body.text)
-                    // add topics to the request
+                // add topics to the request
                 req.body.ratings = topics[0]
                 console.log(req)
-                    // create storm in db
+                // create storm in db
                 let storm = await Storms.create(req.body)
                 if (storm) {
                     console.log('storm created in db')
                     console.log('id: ', storm._id)
-                        // calculate topics
+                    // calculate topics
                     let topics = ml.getTopics(storm.text)
-                        // add topics in db if new
+                    // add topics in db if new
                     let topic_titles = ml.getTopicsTitles(topics[0])
                     createTopics(topic_titles)
-                        // add skill with score:0 to the user if the skill is a new one
-                    topic_titles.forEach(t => skills.addNewSkillToUser(req.user, { topic: t, score: 0 }))
-                        // TODO: update skill score of user
+                    // add skill with init score to the user if the skill is a new one
+                    topic_titles.forEach(t => skills.addNewSkillToUser(req.user, { topic: t, score: config.parameters.init_score }))
+                    // TODO: update skill score of use
                     res.redirect('/')
                 }
 
