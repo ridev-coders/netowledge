@@ -27,8 +27,10 @@
             {{storm.text}}
         </p>
         {{>chart storm=storm}}
-				<!-- input text + range slider (write a thunder) -->
-				{{>thunderize}}
+        <!-- input text + range slider (write a thunder) -->
+        {{>thunderize storm=storm}}
     </div>
 </div>
-{{>thunder}}
+{{#each storm.thunders as |thunder|}}
+    {{>thunder thunder=thunder}}
+{{/each}}

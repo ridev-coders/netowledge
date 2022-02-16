@@ -18,9 +18,8 @@ module.exports = mongoose.model('thunders', {
     },
     freezed_skills: [{
         topic: {
-            type: ObjectId,
-            required: true,
-            ref: 'topics'
+            type: String,
+            required: true
         },
         score: {
             type: Number,
