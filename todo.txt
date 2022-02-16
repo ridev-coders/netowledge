@@ -1,0 +1,14 @@
+###################################
+#   TODO LIST / REQUIREMENTS      #
+###################################
+
+---------------------------
+-   points attribution:   -
+---------------------------
+1) when a user create a storms acquires 1500 per each topic
+2) the storm get the freezed skills of the user at the beginning 
+3) every time a user create a thunder there is a Elo match:
+    - here the calculations of points per topic:
+    - elo.player2win / 3 * score * topic_pertinence
+4) the points are given to the storm correspondent topic and to the author
+5) when the topics scores are stablizied the thunder author can loose points if he voted in the wrong way
