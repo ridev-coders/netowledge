@@ -82,19 +82,18 @@ router.post('/create', async(req, res, next) => {
                 // add topics to the request
                 req.body.ratings = topics[0]
                 console.log(req)
+                // add topics in db if new
+                let topic_titles = ml.getTopicsTitles(topics[0])
+                createTopics(topic_titles)
+                // add skill with init score to the user if the skill is a new one
+                topic_titles.forEach(t => skills.addNewSkillToUser(req.user, { topic: t, score: config.parameters.init_score }))
+                // TODO: the storm get the freezed skills of the user at the beginning (as credibility)
+
                 // create storm in db
                 let storm = await Storms.create(req.body)
                 if (storm) {
                     console.log('storm created in db')
                     console.log('id: ', storm._id)
-                    // calculate topics
-                    let topics = ml.getTopics(storm.text)
-                    // add topics in db if new
-                    let topic_titles = ml.getTopicsTitles(topics[0])
-                    createTopics(topic_titles)
-                    // add skill with init score to the user if the skill is a new one
-                    topic_titles.forEach(t => skills.addNewSkillToUser(req.user, { topic: t, score: config.parameters.init_score }))
-                    // TODO: update skill score of use
                     res.redirect('/')
                 }
 
