@@ -216,16 +216,16 @@
     /* alignement of author near to avatar image in a published storm */
     display: inline;
 }
-
-.stormAuthorLabel {
+/* shadow authorLabel storm or thunder */
+.stormOrThunderAuthorLabel {
     box-shadow: -5px 0 8px -10px;
 }
 
 .publishedStorm {
     padding-top: 0.5%;
 }
-
-.publishedStorm1 {
+/* Storm or thunder shadow body */
+.shadowStormThunder {
     box-shadow: -7px 7px 10px -10px;
 }
 
@@ -323,8 +323,8 @@
     border: 1px solid #d3d3d3;
     box-shadow: inset 0em 0.2em 3px rgba(0, 0, 0, 0.2);
 }
-/* button thunderize */
-.thunderButton {
+/* button thunderize OLD */
+/* .thunderButton {
     margin-top: 2px;
     margin-left: 8px;
     border-radius: 3px;
@@ -336,12 +336,13 @@
 
 .thunderButton:hover {
     background-color: #d3d3d3;
-}
+} */
 /* thunderizeButton with animation start style */
 
 .btnThunderize {
     width: 100px;
     height: 30px;
+    margin-left: 15px;
     cursor: pointer;
     background: transparent;
     border: 1px solid grey;
