@@ -17,6 +17,11 @@
 .themeBackgroundColor {
     background-color: #460f8c;
     color: #ffffff;
+    width: 25vh;
+}
+
+.themeBackgroundColor:hover {
+    background-color: #;
 }
 
 /* login */
@@ -83,7 +88,7 @@
 
 .hitBack {
     margin-top: 15vh;
-    margin-left: -10vh;
+    margin-left: -5vh;
 }
 
 .deduce {
@@ -92,11 +97,6 @@
     margin-bottom: 28vh;
 }
 /* navbar */
-
-.launchStorm {
-    color: #460f8c;
-    border-color: #460f8c;
-}
 
 .header {
     background-color: #460f8c;
@@ -137,7 +137,53 @@
     border-radius: 10px;
 }
 
+/* button Create Storm */
+
+.btn-three {
+    color: #460f8c;
+    transition: all 0.2s;
+    position: relative;
+}
+.btn-three::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(70, 15, 140, 0.1);
+    transition: all 0.3s;
+    border-radius: 3px;
+}
+.btn-three:hover::before {
+    opacity: 0;
+    transform: scale(0.5, 0.5);
+}
+.btn-three::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.2s;
+    border: 1px solid rgba(70, 15, 140, 0.5);
+    border-radius: 3px;
+    transform: scale(1.2, 1.2);
+}
+.btn-three:hover::after {
+    opacity: 1;
+    transform: scale(1, 1);
+}
+
 /* CreateStorm modal */
+
+.stormModalBody {
+    box-shadow: 6px 5px 2px 0 rgb(0 0 0 / 20%);
+}
 
 .image-upload > input {
     /* class to render icon upload */
@@ -148,21 +194,38 @@
     margin-top: 5px;
 }
 
+.stormModal {
+    background-color: #7c7484;
+}
+.stormModalHeader {
+    color: white;
+}
+
+/* button "Launch the Storm" */
+.launchStorm {
+    color: #460f8c;
+    border-color: #460f8c;
+}
+
+.launchStorm:hover {
+    background-color: #460f8c;
+}
+
 /* published Storm */
 .stormAuthor {
     /* alignement of author near to avatar image in a published storm */
     display: inline;
 }
-
-.stormAuthorLabel {
+/* shadow authorLabel storm or thunder */
+.stormOrThunderAuthorLabel {
     box-shadow: -5px 0 8px -10px;
 }
 
 .publishedStorm {
     padding-top: 0.5%;
 }
-
-.publishedStorm1 {
+/* Storm or thunder shadow body */
+.shadowStormThunder {
     box-shadow: -7px 7px 10px -10px;
 }
 
@@ -260,8 +323,8 @@
     border: 1px solid #d3d3d3;
     box-shadow: inset 0em 0.2em 3px rgba(0, 0, 0, 0.2);
 }
-/* button thunderize */
-.thunderButton {
+/* button thunderize OLD */
+/* .thunderButton {
     margin-top: 2px;
     margin-left: 8px;
     border-radius: 3px;
@@ -273,4 +336,45 @@
 
 .thunderButton:hover {
     background-color: #d3d3d3;
+} */
+/* thunderizeButton with animation start style */
+
+.btnThunderize {
+    width: 100px;
+    height: 30px;
+    margin-left: 15px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid grey;
+    outline: none;
+    color: black;
+    transition: 1s ease-in-out;
+    position: relative;
 }
+
+svg {
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    fill: none;
+    stroke: #ffff00;
+    stroke-dasharray: 150 480;
+    stroke-dashoffset: 150;
+    transition: 1s ease-in-out;
+}
+
+.btnThunderize:hover {
+    transition: 1s ease-in-out;
+    background: #d3d3d3;
+}
+
+.btnThunderize:hover svg {
+    stroke-dashoffset: -480;
+}
+
+.btnThunderize span {
+    color: black;
+    font-size: 10px;
+    font-weight: 100;
+}
+/* end  */
