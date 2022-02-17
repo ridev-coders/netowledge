@@ -11,6 +11,8 @@
     here the calculations of points per topic (player1 is the one who launch the thunder, player2 the author of the storm):
     - elo.player2win / 3 * score * topic_pertinence
 4-done) the points are given to the storm correspondent topic 
-5) and to the author
+5-done) and to the author
 6) when the topics scores are stablizied the thunder author can loose points if he voted in the wrong way
 7) salvare skills and scors nella blockchain?
+8) thunderize only when comment, only when rate
+9) if comment yourself thunder rate always at zero

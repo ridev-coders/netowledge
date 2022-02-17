@@ -31,7 +31,7 @@ router.post('/create', async(req, res, next) => {
             thunder = await Thunders.findById(thunder._id).populate('storm').lean()
             // recalculate credibility of storm topics
 
-            await skills.updateStormCredibility(thunder)
+            await skills.updateStormCredibilityAndUserSkillsScore(thunder)
 
             // thunder.storm.ratings.forEach(r.
             //     setStormTopicCredibility(thunder, )
