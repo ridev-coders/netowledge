@@ -47,7 +47,7 @@ router.get('/', async(req, res, next) => {
             return s
         }))
 
-        console.log('st2: ', JSON.stringify(storms, null, 2))
+        // console.log('st2: ', JSON.stringify(storms, null, 2))
 
         // render the page
         res.render('storms/list', { user: req.user, storms })

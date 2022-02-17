@@ -2,8 +2,11 @@
 const { query } = require('express');
 const express = require('express')
 const router = express.Router()
+// Import Models
 const Thunders = require('../models/thunders')
 const Storms = require('../models/storms')
+// Import Services 
+const skills = require('../services/skills')
 
 
 
@@ -22,7 +25,22 @@ router.post('/create', async(req, res, next) => {
             // trust_rate is already inside the req
             req.body.freezed_skills = req.user.skills
             console.log('req: ', req.body)
+            // create thunder in db
             let thunder = await Thunders.create(req.body)
+            // populate thunder with storm
+            thunder = await Thunders.findById(thunder._id).populate('storm').lean()
+            // recalculate credibility of storm topics
+
+            await skills.updateStormCredibility(thunder)
+
+            // thunder.storm.ratings.forEach(r.
+            //     setStormTopicCredibility(thunder, )
+            // )
+
+
+
+
+            console.log('thunder storm: ', thunder)
             if (thunder) {
                 console.log('thunder created')
                 console.log('id: ', thunder._id)
