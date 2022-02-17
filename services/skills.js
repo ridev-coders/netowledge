@@ -19,4 +19,12 @@ const addNewSkillToUser = async(user, skill) => {
         console.log('user has already this skill')
     }
 }
-module.exports = { addNewSkillToUser }
+
+const getTopicScore = (topics, title) => {
+    // Given an array of topics:[]
+    // [{topic: 'BIO', score: 1600}, {topic: 'MED', score: 1200}]
+    // returns the score of the topic
+    return topics.find(t => t.topic === title).score
+}
+
+module.exports = { addNewSkillToUser, getTopicScore }
