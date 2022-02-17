@@ -6,6 +6,7 @@ const moment = require('moment')
 // Import Services
 const ml = require('../services/ml')
 const skills = require('../services/skills')
+const reload = require('../services/reload')
 // Import Models
 const Storms = require('../models/storms')
 const Topics = require('../models/topics')
@@ -78,17 +79,20 @@ router.post('/create', async(req, res, next) => {
                 console.log('user request from storms page')
                 req.body.author = req.user._id
                 // calculate topics
-                let topics = ml.getTopics(req.body.text)
-                // add topics to the request
-                req.body.ratings = topics[0]
-                console.log(req)
+                let topics = ml.getTopics(req.body.text)[0]
                 // add topics in db if new
-                let topic_titles = ml.getTopicsTitles(topics[0])
+                let topic_titles = ml.getTopicsTitles(topics)
                 createTopics(topic_titles)
-                // add skill with init score to the user if the skill is a new one
+                // add skill with init score to the user if the skill is a new one (add topic, add score)
                 topic_titles.forEach(t => skills.addNewSkillToUser(req.user, { topic: t, score: config.parameters.init_score }))
-                // TODO: the storm get the freezed skills of the user at the beginning (as credibility)
-
+                //reload user to update skills etc.
+                await reload.loggedUser(req, next)
+                // the storm get the freezed skills of the user at the beginning (as credibility)
+                topics.forEach(t => {
+                    t.credibility = skills.getTopicScore(req.user.skills, t.topic)
+                })
+                // add topics to the request
+                req.body.ratings = topics
                 // create storm in db
                 let storm = await Storms.create(req.body)
                 if (storm) {
