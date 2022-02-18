@@ -1,6 +1,6 @@
 <div class="chart">
   {{#each storm.ratings as |rating|}}
-  <div class="bar" style="width:{{rating.pertinence}}px">
+  <div class="bar" style="height:{{rating.pertinence}}%;">
     <label>{{rating.topic}} {{rating.pertinence}}%</label>
   </div>
   {{/each}}

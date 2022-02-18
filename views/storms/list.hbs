@@ -1,28 +1,27 @@
 {{>nav}}
+<div class="backgroundPage">
+	<div class="container pt-5">
+		{{!-- 1st row is for the create storm card --}}
+		{{#if user}}
+		<div class="row">
+			<div class="col-2">colonna filtri?</div>
+			<div class="col-8">
+				{{>create_storm}}
+			</div>
+		</div>
+		{{/if}}
 
-<div class="container mt-5">
-{{!-- 1st row is for the create storm card --}}
-  {{#if user}}
-    <div class="row">
-      <div class="col-2">colonna filtri?</div>
-        <div class="col-8">
-            {{>create_storm}}
-        </div>
-      </div>
-    {{/if}}
+		{{!-- 2nd row: storms start --}}
+		<div class="row">
+			<div class="col-2">colonna filtri?</i></div>
+			<div class="col-8">
 
-{{!-- 2nd row: storms start --}}
-  <div class="row">
-    <div class="col-2">colonna filtri?</i></div>
-    <div class="col-8">
+				{{#each storms as |storm|}}
+				{{>storm storm=storm}}
+				{{/each}}
 
-      {{#each storms as |storm|}}
-        {{>storm storm=storm}}
-      {{/each}}
-
-    </div>
-		<div class="col-2"></div>
-
-  </div>
-
+			</div>
+			<div class="col-2"></div>
+		</div>
+	</div>
 </div>

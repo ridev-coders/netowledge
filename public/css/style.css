@@ -2,6 +2,11 @@
     color: #460f8c;
 }
 
+/* background gray */
+.backgroundPage {
+    background-color: #f5f5f5;
+}
+
 /* background loginPage */
 .backgrounder {
     background-color: #460f8c;
@@ -236,17 +241,30 @@
 
 /* topic chart */
 
+.nav-chart li:nth-child(2) {
+    width: 60%;
+    height: 80px;
+    display: grid;
+    align-items: end;
+}
+
+.chart {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    margin-left: 20px;
+    height: 70px;
+    align-items: end;
+}
+
 .bar {
-    height: 30px;
-    margin-left: 100px;
+    text-align: center;
 }
 
 .bar label {
-    margin-left: -90px;
-    margin-top: 8px;
+    margin-top: 10px;
     display: inline-block;
     font-family: sans-serif;
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .bar:nth-child(1) {

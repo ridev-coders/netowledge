@@ -1,6 +1,6 @@
 
 <div class="card border-top-0 mb-3 border-end-0 border-start-0 shadowStormThunder">
-	<ul class="nav nav-tabs">
+	<ul class="nav nav-tabs nav-chart">
 		<li class="nav-item stormOrThunderAuthorLabel">
 			<label for="card-text" class="nav-link active d-grid">
                 <div class="row">
@@ -19,6 +19,9 @@
 
             </label>
         </li>
+				<li>
+					{{>chart storm=storm}}
+				</li>
     </ul>
     <div class="card-body border publishedStorm border-top-0 border-bottom-0">
 			<!-- <img src="{{storm.author.avatar}}" class="img-fluid avatar avatar-sm mt-2 ms-4" alt="..." />
@@ -26,7 +29,6 @@
         <p class="card-text mt-2">
             {{storm.text}}
         </p>
-        {{>chart storm=storm}}
         <!-- input text + range slider (write a thunder) -->
         {{>thunderize storm=storm}}
     </div>
